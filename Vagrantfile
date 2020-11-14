@@ -45,6 +45,6 @@ Vagrant.configure("2") do |config|
 ##           node.vm.provision "shell", inline: "mkdir /mnt/data"
 ##           node.vm.provision "shell", inline: "sed -i \'$ a 10.10.10.10:/mnt/nfs /mnt/data nfs   rw,sync,hard,intr 0 0\' /etc/fstab"
 ##           node.vm.provision "shell", inline: "mount -a"
-#         end
-#  end
+         end
+  end
 end
