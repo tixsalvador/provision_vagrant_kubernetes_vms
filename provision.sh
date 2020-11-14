@@ -7,7 +7,7 @@ systemctl restart sshd
 
 # Install loosends
 echo "Install loosends"
-yum install -y vim net-tools git > /dev/null 2>&1
+yum install -y vim net-tools git sshpass > /dev/null 2>&1
 
 # Install Docker
 echo "Install Docker"
