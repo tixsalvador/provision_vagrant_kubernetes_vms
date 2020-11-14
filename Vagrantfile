@@ -7,6 +7,7 @@ Vagrant.configure("2") do |config|
   config.vm.provider "virtualbox" do |vb|
     vb.customize ['modifyvm', :id, '--nested-hw-virt', 'on']
   end
+   config.vm.provision "shell", path: "provision.sh"
 #  config.vm.provision "shell", inline: "sed -i '/#Password.*/s/^#//' /etc/ssh/sshd_config"
 #  config.vm.provision "shell", inline: "systemctl restart sshd"
   
