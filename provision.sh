@@ -5,6 +5,10 @@ echo "Enable ssh password login on ssh"
 sed '/^#PasswordAuthentication.*yes/s/^#//' /etc/ssh/sshd_config -i 
 systemctl restart sshd
 
+# Update all
+echo "Update all"
+yum update  > /dev/null 2>&1
+
 # Install loosends
 echo "Install loosends"
 yum install -y vim net-tools git sshpass > /dev/null 2>&1
