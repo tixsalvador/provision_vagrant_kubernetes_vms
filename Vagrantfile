@@ -15,6 +15,7 @@ Vagrant.configure("2") do |config|
     master.vm.hostname = "master"
     master.vm.network "private_network", ip: "10.10.10.100"
     master.vm.network "public_network", bridge: "Killer Wireless-n/a/ac 1535 Wireless Network Adapter"
+    master.vm.provision "shell", path: "master.sh"
 #    master.vm.provision "shell", inline: "yum install -y nfs-utils"
 #    master.vm.provision "shell", inline: "systemctl enable nfs-server"
 #    master.vm.provision "shell", inline: "systemctl start nfs-server"
@@ -31,16 +32,16 @@ Vagrant.configure("2") do |config|
     end
   end
 
-#  $instance=3
-#  (1..$instance).each do |i|
-#         config.vm.define "node-k8#{i}" do |node|
-#           node.vm.hostname =  "node-k8#{i}"
-#           node.vm.network "private_network", ip: "10.10.10.#{i+10}"
-#           node.vm.provider "virtualbox" do |v|
-#            v.name = "node_k8#{i}"
-#            v.memory = 1024
-#            v.cpus = 1
-#           end
+  $instance=1
+  (1..$instance).each do |i|
+         config.vm.define "node-k8#{i}" do |node|
+           node.vm.hostname =  "node-k8#{i}"
+           node.vm.network "private_network", ip: "10.10.10.#{i+10}"
+           node.vm.provider "virtualbox" do |v|
+            v.name = "node_k8#{i}"
+            v.memory = 1024
+            v.cpus = 1
+           end
 ##           node.vm.provision "shell", inline: "mkdir /mnt/data"
 ##           node.vm.provision "shell", inline: "sed -i \'$ a 10.10.10.10:/mnt/nfs /mnt/data nfs   rw,sync,hard,intr 0 0\' /etc/fstab"
 ##           node.vm.provision "shell", inline: "mount -a"
