@@ -31,7 +31,7 @@ Vagrant.configure("2") do |config|
     end
   end
 
-  $instance=1
+  $instance=2
   (1..$instance).each do |i|
          config.vm.define "node-k8#{i}" do |node|
            node.vm.hostname =  "node-k8#{i}"
