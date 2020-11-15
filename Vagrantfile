@@ -13,7 +13,8 @@ Vagrant.configure("2") do |config|
   config.vm.define "master-k8" do |master|
     master.vm.hostname = "masteri-k8"
     master.vm.network "private_network", ip: "10.10.10.10"
-    master.vm.network "public_network", bridge: "Killer Wireless-n/a/ac 1535 Wireless Network Adapter"
+#    master.vm.network "public_network", bridge: "Killer Wireless-n/a/ac 1535 Wireless Network Adapter"
+    master.vm.network "public_network", bridge: "wlp8s0"
     master.vm.provision "shell", path: "master.sh"
 #    master.vm.provision "shell", inline: "yum install -y nfs-utils"
 #    master.vm.provision "shell", inline: "systemctl enable nfs-server"
