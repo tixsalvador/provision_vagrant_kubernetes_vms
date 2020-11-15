@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "provision.sh"
 
   config.vm.define "master-k8" do |master|
-    master.vm.hostname = "masteri-k8"
+    master.vm.hostname = "master-k8"
     master.vm.network "private_network", ip: "10.10.10.10"
 #    master.vm.network "public_network", bridge: "Killer Wireless-n/a/ac 1535 Wireless Network Adapter"
     master.vm.network "public_network", bridge: "wlp8s0"
@@ -32,7 +32,7 @@ Vagrant.configure("2") do |config|
     end
   end
 
-  $instance=2
+  $instance=4
   (1..$instance).each do |i|
          config.vm.define "node-k8#{i}" do |node|
            node.vm.hostname =  "node-k8#{i}"
