@@ -50,4 +50,5 @@ EOF
 yum install --disableexcludes=all kubelet kubeadm kubectl -y > /dev/null 2>&1
 IP=`hostname -I | awk '{print $2}'`
 sed "s/^KUBELET_EXTRA_ARGS=$/KUBELET_EXTRA_ARGS=--node-ip=$IP/" /etc/sysconfig/kubelet -i
-
+systemctl enable kubelet  > /dev/null 2>&1
+systemctl start kubelet
