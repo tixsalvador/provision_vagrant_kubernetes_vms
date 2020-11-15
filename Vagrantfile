@@ -13,18 +13,9 @@ Vagrant.configure("2") do |config|
   config.vm.define "master-k8" do |master|
     master.vm.hostname = "master-k8"
     master.vm.network "private_network", ip: "10.10.10.10"
-#    master.vm.network "public_network", bridge: "Killer Wireless-n/a/ac 1535 Wireless Network Adapter"
-    master.vm.network "public_network", bridge: "wlp8s0"
+    master.vm.network "public_network", bridge: "Killer Wireless-n/a/ac 1535 Wireless Network Adapter"
+#    master.vm.network "public_network", bridge: "wlp8s0"
     master.vm.provision "shell", path: "master.sh"
-#    master.vm.provision "shell", inline: "yum install -y nfs-utils"
-#    master.vm.provision "shell", inline: "systemctl enable nfs-server"
-#    master.vm.provision "shell", inline: "systemctl start nfs-server"
-#    master.vm.provision "shell", inline: "mkdir -p /mnt/nfs/{data,content}"
-#    master.vm.provision "shell", inline: "mkdir -p /mnt/nfs/data/{mysql0,mysql1,mysql2,etcd0,etcd1,etcd2}"
-#    master.vm.provision "shell", inline: "chmod -R 777 /mnt/nfs"
-#    master.vm.provision "shell", inline: "echo '/mnt/nfs/data  10.10.10.0/24(rw,sync,no_subtree_check)' | tee -a /etc/exports"
-#    master.vm.provision "shell", inline: "echo '/mnt/nfs/content  10.10.10.0/24(rw,sync,no_subtree_check,no_root_squash)' | tee -a /etc/exports"
-#    master.vm.provision "shell", inline: "exportfs -a"
     master.vm.provider "virtualbox" do |v|
       v.name = "master_k8"
       v.memory = 2048
@@ -32,7 +23,7 @@ Vagrant.configure("2") do |config|
     end
   end
 
-  $instance=4
+  $instance=2
   (1..$instance).each do |i|
          config.vm.define "node-k8#{i}" do |node|
            node.vm.hostname =  "node-k8#{i}"
@@ -43,9 +34,6 @@ Vagrant.configure("2") do |config|
             v.cpus = 1
            end
            node.vm.provision "shell", path: "worker.sh"
-##           node.vm.provision "shell", inline: "mkdir /mnt/data"
-##           node.vm.provision "shell", inline: "sed -i \'$ a 10.10.10.10:/mnt/nfs /mnt/data nfs   rw,sync,hard,intr 0 0\' /etc/fstab"
-##           node.vm.provision "shell", inline: "mount -a"
          end
   end
 end
