@@ -11,7 +11,7 @@ yum update  > /dev/null 2>&1
 
 # Install loosends
 echo "Install loosends"
-yum install -y vim net-tools git sshpass tree > /dev/null 2>&1
+yum install -y vim net-tools git sshpass tree glusterfs-client > /dev/null 2>&1
 
 # Install Docker
 echo "Install Docker"
