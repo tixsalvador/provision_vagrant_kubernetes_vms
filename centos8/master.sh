@@ -25,3 +25,8 @@ kubectl apply -f https://raw.githubusercontent.com/tixsalvador/ansible_vagrant/m
 mkdir /home/vagrant/.kube
 cp /etc/kubernetes/admin.conf /home/vagrant/.kube/config
 chown -R vagrant:vagrant /home/vagrant/.kube
+
+# Fix "kubectl get cs" command give nodes on unhealthy state. connect: connection refused error
+ sed '/--port=0/s/^/#/' /etc/kubernetes/manifests/kube-scheduler.yaml -i
+ sed '/--port=0/s/^/#/' /etc/kubernetes/manifests/kube-controller-manager.yaml -i
+ systemctl restart kubelet
