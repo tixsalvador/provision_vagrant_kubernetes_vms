@@ -7,8 +7,15 @@ echo "Setting up NFS"
 apt-get install -y nfs-kernel-server portmap nfs-common > /dev/null 2>&1
 systemctl enable nfs-server > /dev/null 2>&1
 systemctl start nfs-server
-mkdir -p /mnt/nfs/{data,content}
-mkdir -p /mnt/nfs/data/{mysql0,mysql1,mysql2,etcd0,etcd1,etcd2}
+mkdir -p /mnt/nfs/data
+mkdir -p /mnt/nfs/content
+mkdir -p /mnt/nfs/data/
+mkdir -p /mnt/nfs/data/mysql0
+mkdir -p /mnt/nfs/data/mysql1
+mkdir -p /mnt/nfs/data/mysql2
+mkdir -p /mnt/nfs/data/etcd0
+mkdir -p /mnt/nfs/data/etcd1
+mkdir -p /mnt/nfs/data/etcd2
 chmod -R 777 /mnt/nfs
 cat > /etc/exports <<- "EOF"
 /mnt/nfs/data  10.10.10.0/24(rw,sync,no_subtree_check)
