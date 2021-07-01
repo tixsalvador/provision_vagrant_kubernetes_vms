@@ -51,3 +51,8 @@ sed '/Environment=\"KUBELET_CONFIG_ARGS=/a Environment=\"KUBELET_EXTRA_ARGS=--no
 systemctl enable kubelet  > /dev/null 2>&1
 systemctl daemon-reload
 systemctl start kubelet
+
+# Install kubectl autocomplete
+source <(kubectl completion bash)
+echo "source <(kubectl completion bash)" >> ~/.bashrc
+echo "source <(kubectl completion bash)" >> ~vagrant/.bashrc 
