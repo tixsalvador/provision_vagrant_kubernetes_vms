@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# To suppress the stdin warning message
+export DEBIAN_FRONTEND=noninteractive
+
 IP=`hostname -I | awk '{print $2}'`
 POD_NETWORK=10.244.0.0/16
 
