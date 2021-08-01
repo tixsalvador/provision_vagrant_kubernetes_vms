@@ -3,7 +3,7 @@ Clone repo and run vagrant up
 Change NIC name on Vagrantfile  
 Change IP address on Vagrantfile and worker.sh
 
-# Clone only a subdirectory. 
+### Clone only a subdirectory. 
 ```sh
 # Create a directory, so Git doesn't get messy, and enter it
 mkdir my-dir && cd my-dir
