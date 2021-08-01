@@ -12,7 +12,7 @@ mkdir my-dir && cd my-dir
 git init
 
 # Track repository, do not enter subdirectory
-git remote add -f origin https://github.com/tixsalvador/provision_vagrant_kubernetes_vm
+git remote add -f origin https://github.com/tixsalvador/provision_vagrant_kubernetes_vms.git
 
 # Enable the tree check feature
 git config core.sparseCheckout true
