@@ -25,3 +25,7 @@ echo br_netfilter >> /etc/modules
 echo 1 > /proc/sys/net/ipv4/ip_forward
 sed '/net.ipv4.ip_forward/s/^#//' -i /etc/sysctl.conf
 sysctl --system
+
+# Prepare ssh keys for k0s
+ssh-keygen -q -t rsa -N '' -f ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
