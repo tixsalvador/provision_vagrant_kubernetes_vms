@@ -14,5 +14,3 @@ curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.
 echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list > /dev/null 2>&1
 apt-get update
 apt-get install -y apt-transport-https ca-certificates kubectl
-
-# THIS SHOULD BE REMOVE
