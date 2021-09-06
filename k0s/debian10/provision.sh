@@ -29,5 +29,3 @@ sysctl --system
 # Prepare ssh keys for k0s
 ssh-keygen -q -t rsa -N '' -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-
-# THIS IS TO TEST REVERT
