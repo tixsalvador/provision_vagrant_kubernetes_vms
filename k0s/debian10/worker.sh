@@ -5,5 +5,3 @@ MASTER=10.10.10.20
 
 # Copy ssh key pub from master_deb_k0 and vice versa
 sshpass  -p vagrant ssh -o "StrictHostKeyChecking no" vagrant@$MASTER 'sudo cat /root/.ssh/id_rsa.pub' | tee -a ~/.ssh/authorized_keys
-
-# THIS SHOULD BE REMOVE AS WELL
